@@ -1,0 +1,27 @@
+{
+  "name": "Data-Structures-and-Algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "dev": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Segundavid-Dev/DSA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Segundavid-Dev/DSA/issues"
+  },
+  "homepage": "https://github.com/Segundavid-Dev/DSA#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
