@@ -4,8 +4,9 @@
 
 function breadthFirstSearch(
   graph: Record<string, string[]>,
-  startNode: string
-): void {
+  startNode: string,
+  targetNode: string
+): string {
   const visited = new Set<string>(); // keep track of visited node
   const queue: string[] = []; // queue for BFS
 
@@ -16,7 +17,10 @@ function breadthFirstSearch(
   //   loop while queue is not empty
   while (queue.length > 0) {
     const currentNode = queue.shift(); //dequeue
-    console.log(currentNode);
+
+    if (currentNode === targetNode) {
+      return currentNode;
+    }
 
     // visit all neigbours
     for (const neigbour of graph[currentNode!]!)
@@ -25,4 +29,19 @@ function breadthFirstSearch(
         queue.push(neigbour); // enqueue
       }
   }
+
+  return "Not found";
 }
+
+const graph = {
+  A: ["B", "C"],
+  B: ["D"],
+  C: ["E"],
+  D: [],
+  E: [],
+};
+
+const startNode = "A";
+const targetNode = "E";
+
+console.log(breadthFirstSearch(graph, startNode, targetNode));
