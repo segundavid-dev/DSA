@@ -43,3 +43,8 @@ const graph = {
   D: [],
   E: [],
 };
+
+const startNode = "A";
+const targetNode = "E";
+
+console.log(dfsIterative(graph, startNode, targetNode));
