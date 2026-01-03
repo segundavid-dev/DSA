@@ -5,21 +5,35 @@
 // mark node as visited, process node(print)
 // for each neighbour in node adjacency list , if neighbour is not visited, push neighbour unto stack
 
-function dfsIterative(graph: Record<string, string[]>, startNode: string) {
+function dfsIterative(
+  graph: Record<string, string[]>,
+  startNode: string,
+  targetNode: string
+) {
   const visited = new Set<string>();
-  const stack = [startNode];
+  const stack: string[] = [];
+
+  visited.add(startNode);
+  stack.push(startNode);
 
   while (stack.length > 0) {
+    // unlike bfs logic (dequeue first item in array), this removes the last item in the stack, following the LIFO rule
     const currentNode = stack.pop()!;
 
-    if (!visited.has(currentNode)) {
-      visited.add(currentNode);
+    if (currentNode === targetNode) {
+      return currentNode;
     }
 
+    // visit all neighbours -> one level depth wise
     for (const neigbour of graph[currentNode!]!) {
-      stack.push(neigbour);
+      if (!visited.has(neigbour)) {
+        visited.add(neigbour);
+        stack.push(neigbour);
+      }
     }
   }
+
+  return "Not found";
 }
 
 const graph = {

@@ -12,7 +12,7 @@ function breadthFirstSearch(
 
   // start from firstNode
   visited.add(startNode);
-  queue.push(startNode);
+  queue.push(startNode); // enqueue
 
   //   loop while queue is not empty
   while (queue.length > 0) {
